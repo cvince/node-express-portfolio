@@ -20,7 +20,7 @@
 // console.log('Listening on port 3000');
 
 
-
+var fs = require('fs');
 var express = require('express');
 var app = express();
 var cons = require('consolidate');
@@ -37,6 +37,7 @@ app.get('/', function(req, res){
     partials:
     {
       footer: 'footer',
+      nav: 'nav',
       header: 'header'
     }
   });
@@ -49,12 +50,20 @@ app.get('/work/:id', function(req, res){
     partials:
     {
       header: 'header',
+      nav: 'nav',
       casestudy: 'work/'+req.params.id+'/case',
       footer: 'footer'
     }
   });
 });
 
+app.get('/api/work/:id', function(req, res){
+  res.render('work/'+req.params.id+'/case');
+})
+
+app.get('/work', function(req, res){
+  res.redirect('/');
+})
 
 app.listen(3000);
 console.log('Express server listening on port 3000');
