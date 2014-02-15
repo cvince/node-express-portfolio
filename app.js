@@ -73,5 +73,6 @@ app.get('/hacks', function(req, res){
   res.redirect('/#hacks');
 })
 
-app.listen(3000);
+var port = process.env.PORT || 4000;
+app.listen(port);
 console.log('Express server listening on port 3000');
