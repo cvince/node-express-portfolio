@@ -65,5 +65,13 @@ app.get('/work', function(req, res){
   res.redirect('/');
 })
 
+app.get('/about', function(req, res){
+  res.redirect('/#about');
+})
+
+app.get('/hacks', function(req, res){
+  res.redirect('/#hacks');
+})
+
 app.listen(3000);
 console.log('Express server listening on port 3000');
